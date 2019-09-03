@@ -1,0 +1,40 @@
+- title: Getting Started
+  docs:
+  - introduction
+  - api-integration-overview
+  - platform
+  
+- title: Step 1 - Data Collector
+  docs:
+  - data-collector
+  - session-id
+  - dc-sdk
+  - dc-web-browser
+  - dc-faq
+
+- title: Step 2 - Risk Inquiry Service (RIS)
+  docs:
+  - ris-intro
+  - ris-invoke
+  - ris-data-submission
+  - phonetoweb
+  - ris-modes
+  - ris-shopping-cart
+  - ris-udf
+  - ris-response
+  - ris-predictive-response
+  - ris-api-keys
+  - ris-sdk
+
+- title: Step 3 - Event Notification Service
+  docs: 
+  - ens-main
+
+- title: Step 4 - API Endpoints
+  docs: 
+  - api-endpoints
+
+- title: Testing
+  docs: 
+  - kount-environments
+ 

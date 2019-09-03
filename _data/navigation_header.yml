@@ -1,0 +1,69 @@
+# Navbar left menu navigation links
+
+left:
+  - title: Main
+    url: /
+
+  - title: API Integration
+    url: /docs/introduction/
+
+  - title: Platform Integrations
+    url: /docs/platform
+
+  - title:  Developer Resources
+    dropdown:
+
+      - title: Mobile SDKs
+        url: /docs/dc-sdk/
+
+      - title: RIS Data Dictionary
+        url: /docs/ris-data-submission/
+
+
+# Navbar right menu navigation links
+
+right:
+
+  - title: Contact
+    url: /contact/
+    button: success
+
+  # - title: Changelog
+  #   url: /contact/
+  #   button: default
+
+  # - title: Contact
+  #   url: /contact/
+  #   button: primary
+
+  # - title: Changelog
+  #   url: /contact/
+  #   button: secondary
+
+  # - title: Contact
+  #   url: /contact/
+  #   button: danger
+
+  # - title: Changelog
+  #   url: /contact/
+  #   button: success
+
+  # - title: Contact
+  #   url: /contact/
+  #   button: warning
+
+  # - title: Changelog
+  #   url: /contact/
+  #   button: primary-outline
+
+  # - title: Contact
+  #   url: /contact/
+  #   button: danger-outline
+
+  # - title: Changelog
+  #   url: /contact/
+  #   button: success-outline
+
+  # - title: Contact
+  #   url: /contact/
+  #   button: warning-outline
