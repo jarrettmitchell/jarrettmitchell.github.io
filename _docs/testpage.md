@@ -1,6 +1,6 @@
 ---
 title: Test Page
-subtitle:None
+subtitle: None
 ---
 
 Risk Inquiry Service Modes
