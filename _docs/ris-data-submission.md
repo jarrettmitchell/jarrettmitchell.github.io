@@ -259,3 +259,244 @@ When submitting data to RIS, it is recommended to send as much data as possible.
     <td class="tg-73oq">MODE=Q MODE=P MODE=X MODE=U</td>
   </tr>
 </table>
+
+<table>
+ <tr valign="bottom">
+  <td><strong>RIS Required Inquiry Key</strong></td>
+  <td><strong>Description</strong></td>
+  <td><strong>Max Field Length</strong></td>
+  <td><strong>Source</strong></td>
+  <td><strong>Required</strong></td>
+ </tr>
+ <tr valign="top">
+  <td>ANID</td>
+  <td>Automatic Number Identification (ANI) submitted with order. If the ANI cannot be determined, merchant must pass 0123456789 as the ANID. This field is only valid for MODE=P RIS submissions.</td>
+  <td>32</td>
+  <td>Merchant</td>
+  <td>MODE=P</td>
+ </tr>
+ <tr valign="top">
+  <td>AUTH</td>
+  <td>Authorization Status returned to merchant from processor. Acceptable values for the AUTH field are ’A’ for Authorized or ’D’ for Decline. In orders where AUTH=A will aggregate towards order velocity of the persona while orders where AUTH=D will decrement the velocity of the persona.</td>
+  <td>1</td>
+  <td>Merchant</td>
+  <td>MODE=Q<br />MODE=P</td>
+ </tr>
+ <tr valign="top">
+  <td>CURR</td>
+  <td>Country of currency submitted on order</td>
+  <td>3</td>
+  <td>Merchant</td>
+  <td>MODE=Q<br />MODE=P</td>
+ </tr>
+ <tr valign="top">
+  <td>EMAL</td>
+  <td>Email address submitted by customer. If a call center is accepting orders on behalf of customers and the customer does not provide an email address, <a href="mailto:noemail@Kount.com">noemail@kount.com</a> must be submitted. Kount currently supports 2-bit character sets. Unicode character sets are not supported at this time.</td>
+  <td>64</td>
+  <td>Merchant</td>
+  <td>MODE=Q</td>
+ </tr>
+ <tr valign="top">
+  <td>IPAD</td>
+  <td>Dotted Decimal IPv4 address that the merchant sees coming from the customer. If MODE=P or the Phone to Web exclusion is used, the IPAD field should be hard coded to be 10.0.0.1. Other than MODE=P or Phone to Web, the IPAD field should never be an anonymous IP address (i.e. 10.X.X.X or 192.168.X.X). IPv6 Addresses are not currently supported. Please use the IPv4 dual stack equivalent or pass 10.0.0.1 in the IPAD field if an IPv4 address is not available.</td>
+  <td>16</td>
+  <td>Merchant</td>
+  <td>MODE=Q<br />MODE=P</td>
+ </tr>
+ <tr valign="top">
+  <td>MACK</td>
+  <td>Merchants acknowledgement to ship/process the order. The MACK field must be set as ’Y’ if persona data is to be collected to strengthen the score.</td>
+  <td>1</td>
+  <td>Merchant</td>
+  <td>MODE=Q<br />MODE=P</td>
+ </tr>
+ <tr valign="top">
+  <td>MERC</td>
+  <td>Merchant ID assigned to the merchant by Kount.</td>
+  <td>6</td>
+  <td>Merchant</td>
+  <td>MODE=Q<br />MODE=P<br />MODE=X<br />MODE=U</td>
+ </tr>
+ <tr valign="top">
+  <td>MODE</td>
+  <td>Specifies what mode type the RIS post is:<br />
+      MODE=Q<br />
+      MODE=P<br />
+      MODE=X<br />
+      MODE=U</td>
+  <td>1</td>
+  <td>Merchant</td>
+  <td>MODE=Q<br />MODE=P<br />MODE=X<br />MODE=U</td>
+ </tr>
+ <tr valign="top">
+  <td>PROD_DESC</td>
+  <td>Shopping cart data array attribute for specific description of the item being purchased.<br /><br /> Note: Product Descriptions should not contain any markup or unicode values. Non-alpha numeric characters will increment the character count exponentially depending on the special character used. RIS Post Limits: There is a 40,960 character/byte limit that makes up an entire RIS post. Should the RIS post exceed the 40,960 byte limit, an HTTP standard error will be returned, typically an error code: 413 - Request Entity Too Large.</td>
+  <td>256</td>
+  <td>Merchant</td>
+  <td>MODE=Q<br />MODE=P</td>
+ </tr>
+ <tr valign="top">
+  <td>PROD_ITEM</td>
+  <td>Shopping cart data array attribute typically the SKU for an item; this value should be free from any markup or Unicode values. This value should be passed as plain text.</td>
+  <td>256</td>
+  <td>Merchant</td>
+  <td>MODE=Q<br />MODE=P</td>
+ </tr>
+ <tr valign="top">
+  <td>PROD_PRICE</td>
+  <td>Shopping cart data array attribute for the price of the single item. Must be a natural number including 0.</td>
+  <td>no max</td>
+  <td>Merchant</td>
+  <td>MODE=Q<br />MODE=P</td>
+ </tr>
+ <tr valign="top">
+  <td>PROD_QUANT</td>
+  <td>Shopping cart array attribute signifying the quantity of the item being purchased.</td>
+  <td>no max</td>
+  <td>Merchant</td>
+  <td>MODE=Q<br />MODE=P</td>
+ </tr>
+ <tr valign="top">
+  <td>PROD_TYPE</td>
+  <td>Shopping cart data array attribute high level or generalized description of the item added to the shopping cart; this value should be free from any markup or Unicode values. This value should be passed as plain text.</td>
+  <td>256</td>
+  <td>Merchant</td>
+  <td>MODE=Q<br />MODE=P</td>
+ </tr>
+ <tr valign="top">
+  <td>PTOK</td>
+  <td>Payment token submitted by merchant for order (credit card, payer ID, routing/transit, MICR, and account number). When using KHASH the BIN is extracted from the PTOK value, Last4 may be passed independently - it is lost during KHASH.</td>
+  <td>32</td>
+  <td>Merchant</td>
+  <td>MODE=Q<br />MODE=P</td>
+ </tr>
+ <tr valign="top">
+  <td>PTYP</td>
+  <td>Payment type submitted by merchant:<br />
+      <table>
+       <tr>
+        <td><strong>PTYP Value</strong></td>
+        <td><strong>Description</strong></td>
+       </tr>
+       <tr>
+        <td>APAY</td>
+        <td>Apple Pay</td>
+       </tr>
+       <tr>
+        <td>CARD</td>
+        <td>Credit card</td>
+       </tr>
+       <tr>
+        <td>PYPL</td>
+        <td>Paypal</td>
+       </tr>
+       <tr>
+        <td>CHEK</td>
+        <td>Check</td>
+       </tr>
+       <tr>
+        <td>NONE</td>
+        <td>None</td>
+       </tr>
+       <tr>
+        <td>GDMP</td>
+        <td>Green Dot Money Pack</td>
+       </tr>
+       <tr>
+        <td>GOOG</td>
+        <td>Google Checkout</td>
+       </tr>
+       <tr>
+        <td>BLML</td>
+        <td>Bill Me Later</td>
+       </tr>
+       <tr>
+        <td>GIFT</td>
+        <td>Gift card</td>
+       </tr>
+       <tr>
+        <td>BPAY</td>
+        <td>BPAY</td>
+       </tr>
+       <tr>
+        <td>NETELLAR</td>
+        <td>Netellar</td>
+       </tr>
+       <tr>
+        <td>GIROPAY</td>
+        <td>GiroPay</td>
+       </tr>
+       <tr>
+        <td>ELV</td>
+        <td>ELV</td>
+       </tr>
+       <tr>
+        <td>MERCADE_PAGO</td>
+        <td>Mercade Pago</td>
+       </tr>
+       <tr>
+        <td>SEPA</td>
+        <td>Single Euro Payments Area</td>
+       </tr>
+       <tr>
+        <td>INTERAC</td>
+        <td>Interac</td>
+       </tr>
+       <tr>
+        <td>POLI</td>
+        <td>POLi</td>
+       </tr>
+       <tr>
+        <td>SKRILL</td>
+        <td>Skrill/Moneybookers</td>
+       </tr>
+       <tr>
+        <td>SOFORT</td>
+        <td>Sofort</td>
+       </tr>
+       <tr>
+        <td>TOKEN</td>
+        <td>Token</td>
+       </tr>
+      </table>
+     </td>
+     <td>varies</td>
+     <td>Merchant</td>
+     <td>MODE=Q<br />MODE=P</td>
+    </tr>
+    <tr valign="top">
+     <td>SESS</td>
+     <td>Unique Session ID</td>
+     <td>32</td>
+     <td>Merchant</td>
+     <td>MODE=Q<br />MODE=P<br />MODE=X<br />MODE=U</td>
+    </tr>
+    <tr valign="top">
+     <td>SITE</td>
+     <td>Website identifier of where order originated. Value must exist inside of the Agent Web Console prior to post.</td>
+     <td>8</td>
+     <td>Merchant</td>
+     <td>MODE=Q<br />MODE=P</td>
+    </tr>
+    <tr valign="top">
+     <td>TOTL</td>
+     <td>Total amount in currency submitted in lowest currency factor. e.g. USD = pennies ($1.00 = 100). TOTL must be a natural number including 0.</td>
+     <td>15</td>
+     <td>Merchant</td>
+     <td>MODE=Q<br />MODE=P</td>
+    </tr>
+    <tr valign="top">
+     <td>TRAN</td>
+     <td>Transaction ID required for update calls to Kount.</td>
+     <td>&nbsp;</td>
+     <td>Kount</td>
+     <td>MODE=U<br />MODE=X</td>
+    </tr>
+    <tr valign="top">
+     <td>VERS</td>
+     <td>Specifies the version of Kount built into SDK; must be supplied by merchant if not using the SDK.</td>
+     <td>4</td>
+     <td>Kount-Merchant</td>
+     <td>MODE=Q<br />MODE=P<br />MODE=X<br />MODE=U</td>
+    </tr>
+   </table>
