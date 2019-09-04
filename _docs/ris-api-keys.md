@@ -94,3 +94,28 @@ Once you have created the API Key in the Agent Web Console, send the custom head
     <td class="tg-buh4">URL url = new URL(this.risServerUrl); HttpsURLConnection urlConn = (HttpsURLConnection) url.openConnection(); urlConn.setRequestProperty("X-Kount-Api-Key", getApiKeyData());&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
   </tr>
 </table>
+
+
+<table>
+<tr valign="bottom">
+<td><strong>Setting</strong></td>
+<td><strong>Example</strong></td>
+</tr>
+<tr valign="top">
+<td>PHP settings.initial</td>
+<td>$ch = curl_init();<br />
+    curl_setopt($ch, CURLOPT_HTTPHEADER,<br />
+    array("X-Kount-Api-Key: {$this->apiKey}"));</td>
+</tr>
+<tr valign="top">
+<td>.NET App.config</td>
+<td>HttpWebRequest webReq = (HttpWebRequest)WebRequest.Create(this.url);<br />
+    webReq.Headers["X-Kount-Api-Key"] = this.apiKey;</td>
+</tr>
+<tr valign="top">
+<td>Java</td>
+<td>URL url = new URL(this.risServerUrl);<br />
+    HttpsURLConnection urlConn = (HttpsURLConnection) url.openConnection();<br />
+    urlConn.setRequestProperty("X-Kount-Api-Key", getApiKeyData());</td>
+</tr>
+</table>
