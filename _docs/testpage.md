@@ -3,6 +3,7 @@ title: Test Page
 ---
 
 Risk Inquiry Service Modes
+
 +-------------+-------------------------+---------------------------------------+
 | ``Inquiry   | SDK Constant            | Description                           |
 | MODE``      |                         |                                       |
