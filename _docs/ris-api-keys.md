@@ -122,3 +122,35 @@ tr:nth-child(even) {
 </tr>
 </table>
 
+<table>
+<tr valign="bottom">
+<td><strong>API Endpoint</strong></td>
+<td><strong>Description</strong></td>
+<td><strong>Type of Request</strong></td>
+</tr>
+<tr valign="top">
+<td><code>/info</code></td>
+<td>An endpoint to retrieve various Kount Access information</td>
+<td>POST</td>
+</tr>
+<tr valign="top">
+<td><code>/getdevices</code></td>
+<td>An endpoint that returns all stored Device IDs and trust relationships for the identified UNIQ (business userID)</td>
+<td>GET</td>
+</tr>
+<tr valign="top">
+<td><code>/getuniques</code></td>
+<td>An endpoint that returns all stored UNIQ (business userID) and trust relationships for the identified Device</td>
+<td>GET</td>
+</tr>
+<tr valign="top">
+<td><code>/devicetrustbysession</code></td>
+<td>An endpoint that sets the trust state for the Device ID associated with the SessionID and the identified UNIQ (business userID)</td>
+<td>POST</td>
+</tr>
+<tr valign="top">
+<td><code>/devicetrustbydevice</code></td>
+<td>An endpoint that sets the trust state for the Device ID and the identified UNIQ (business userID)</td>
+<td>POST</td>
+</tr>
+</table>
