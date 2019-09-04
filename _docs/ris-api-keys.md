@@ -95,7 +95,8 @@ Once you have created the API Key in the Agent Web Console, send the custom head
   </tr>
 </table>
 
-
+tr:nth-child(even) {
+  background-color: #f2f2f2
 <table>
 <tr valign="bottom">
 <td><strong>Setting</strong></td>
@@ -119,3 +120,4 @@ Once you have created the API Key in the Agent Web Console, send the custom head
     urlConn.setRequestProperty("X-Kount-Api-Key", getApiKeyData());</td>
 </tr>
 </table>
+}
